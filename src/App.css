@@ -1,0 +1,47 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+#App{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+.header-section{
+    width: 100%;
+    min-height: 25vh;
+    background-image: url("../src/assets/images/pattern-bg.png");
+    position: relative;
+}
+.header-input{
+    min-width: 330px;
+    padding: 0.6rem;
+    min-height: 44px;
+    border-radius: 6px 0 0 6px;
+}
+.header-image-div{
+    min-height: 46px;
+    min-width: 42px;
+    max-height: 100%;
+    border-radius: 0 6px 6px 0;
+    padding: 2px;
+    z-index: 2;
+}
+.header-adress-section{
+    background-color: white;
+    position: absolute;
+    top: 70%;
+    margin-inline: auto;
+    min-width: 70vw;
+    border-radius: 6px;
+    padding: 1rem;
+    z-index: 3;
+}
+.map-section-map{
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+}
