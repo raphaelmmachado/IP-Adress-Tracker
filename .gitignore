@@ -24,10 +24,12 @@ dist-ssr
 *.sw?
 
 # environment variables
-.env
-.http
+*.env
+*.http
 
 *.xd
 *.fig
 
 *.sketch
+# Local Netlify folder
+.netlify

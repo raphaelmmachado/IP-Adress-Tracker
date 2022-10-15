@@ -5,54 +5,75 @@ import { MapComponent } from "./components/MapComponent.jsx";
 import { HeaderComponent } from "./components/HeaderComponent.jsx";
 
 function App() {
-  const [latitude, setLatitude] = useState("");
-  const [longitude, setLongitude] = useState("");
-  const [continent, setContinent] = useState("");
-  const [country, setCountry] = useState("");
-  const [regionCode, setRegionCode] = useState("");
-  const [region, setRegion] = useState("");
-  const [city, setCity] = useState("");
-  const [ip, setIp] = useState("");
-  const [flag, setFlag] = useState("");
   const [input, setInput] = useState("");
+  const [geoData, setGeoData] = useState({});
+  const [submit, setSubmit] = useState(false);
 
   useEffect(() => {
-    getUserLocation();
+    const controller = new AbortController();
+    const signal = controller.signal;
+    getUserLocation(signal);
+    return () => {
+      controller.abort();
+    };
   }, []);
-  const getUserLocation = async () => {
+  useEffect(() => {
+    if (input) {
+      getInputLocation();
+    }
+  }, [submit]);
+  const getUserLocation = async (signal) => {
     try {
-      const key = import.meta.env.VITE_API_KEY;
-      const { data } = await axios(`https://api.ipdata.co/?api-key=${key}`);
-      setLatitude(data.latitude);
-      setLongitude(data.longitude);
-      setContinent(data.continent_name);
-      setCountry(data.country_name);
-      setCity(data.city);
-      setRegionCode(data.region_code);
-      setRegion(data.region);
-      setIp(data.ip);
-      setFlag(data.flag);
+      const ipDataKey = import.meta.env.VITE_IPDATA_KEY;
+      const { data } = await axios(
+        `https://api.ipdata.co/?api-key=${ipDataKey}`,
+        {
+          signal: signal,
+        }
+      );
+      setGeoData({
+        latitude: data.latitude,
+        longitude: data.longitude,
+        continent: data.continent_name,
+        country: data.country_name,
+        city: data.city,
+        regionCode: data.region_code,
+        region: data.region,
+        ip: data.ip,
+        flag: data.flag,
+        isp: data.asn.name,
+        timezone: data.time_zone.offset,
+        timezoneName: data.time_zone.name,
+        currentTime: data.time_zone.current_time,
+      });
     } catch (e) {
       console.error(e);
-      alert(`Error! Maybe typed an incorrect ip adress.
-      Erro! talvez você digitou um endereço de ip incorretamente.`);
+      alert(`Please turn off your adblocker!
+      Por favor desligue o seu adblocker!`);
     }
   };
   const getInputLocation = async () => {
     try {
-      const key = import.meta.env.VITE_API_KEY;
+      const ipDataKey = import.meta.env.VITE_IPDATA_KEY;
       const { data } = await axios(
-        `https://api.ipdata.co/${input}?api-key=${key}`
+        `https://api.ipdata.co/${input}?api-key=${ipDataKey}`
       );
-      setLatitude(data.latitude);
-      setLongitude(data.longitude);
-      setContinent(data.continent_name);
-      setCountry(data.country_name);
-      setCity(data.city);
-      setRegionCode(data.region_code);
-      setRegion(data.region);
-      setIp(data.ip);
-      setFlag(data.flag);
+      setGeoData({
+        latitude: data.latitude,
+        longitude: data.longitude,
+        continent: data.continent_name,
+        country: data.country_name,
+        city: data.city,
+        regionCode: data.region_code,
+        region: data.region,
+        ip: data.ip,
+        flag: data.flag,
+        isp: data.asn.name,
+        timezone: data.time_zone.offset,
+        timezoneName: data.time_zone.name,
+        currentTime: data.time_zone.current_time,
+      });
+      console.log(data);
     } catch (e) {
       console.error(e);
       alert(`Error! Maybe you typed an incorrect ip adress.
@@ -62,18 +83,16 @@ function App() {
   return (
     <div id="App">
       <HeaderComponent
-        country={country}
-        region={region}
-        regionCode={regionCode}
-        city={city}
-        ip={ip}
-        continent={continent}
-        flag={flag}
+        geoData={geoData}
         setInput={(text) => setInput(text)}
-        getInputLocation={() => getInputLocation()}
         setSubmit={() => setSubmit((prev) => !prev)}
       />
-      <MapComponent latitude={latitude} longitude={longitude} />
+      {geoData.latitude && geoData.longitude && (
+        <MapComponent
+          latitude={geoData.latitude}
+          longitude={geoData.longitude}
+        />
+      )}
     </div>
   );
 }
