@@ -1,4 +1,3 @@
-import "./App.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { MapComponent } from "./components/MapComponent.jsx";
@@ -23,8 +22,8 @@ function App() {
     }
   }, [submit]);
   const getUserLocation = async (signal) => {
+    const ipDataKey = import.meta.env.VITE_IPDATA_KEY;
     try {
-      const ipDataKey = import.meta.env.VITE_IPDATA_KEY;
       const { data } = await axios(
         `https://api.ipdata.co/?api-key=${ipDataKey}`,
         {
@@ -48,13 +47,11 @@ function App() {
       });
     } catch (e) {
       console.error(e);
-      alert(`Please turn off your adblocker!
-      Por favor desligue o seu adblocker!`);
     }
   };
   const getInputLocation = async () => {
+    const ipDataKey = import.meta.env.VITE_IPDATA_KEY;
     try {
-      const ipDataKey = import.meta.env.VITE_IPDATA_KEY;
       const { data } = await axios(
         `https://api.ipdata.co/${input}?api-key=${ipDataKey}`
       );

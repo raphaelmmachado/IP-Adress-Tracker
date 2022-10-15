@@ -17,8 +17,8 @@ function MapComponent({ latitude, longitude }) {
     <section className="map-section">
       <MapContainer
         center={{ lat: latitude, lng: longitude }}
-        zoom={13}
-        scrollWheelZoom={false}
+        zoom={8}
+        scrollWheelZoom={true}
         className="map-section-map"
       >
         <TileLayer

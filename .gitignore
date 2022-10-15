@@ -33,3 +33,4 @@ dist-ssr
 *.sketch
 # Local Netlify folder
 .netlify
+example.http

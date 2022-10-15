@@ -17,6 +17,6 @@ function FormatDate({ date, timezoneName }) {
   }, [seconds]);
   const update = () => setInterval(() => setSeconds((prev) => prev + 1), 1000);
 
-  return <p>{time}</p>;
+  return <div className="text-lg text-zinc-900 font-bold">{time}</div>;
 }
 export { FormatDate };

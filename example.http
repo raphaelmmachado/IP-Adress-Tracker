@@ -1,1 +1,3 @@
-GET https://api.ipdata.co/24.24.24.24?api-key=184b1c9f86a87584c9ac7dfaa1afe895ee1b045434d44a04ca9965e4
+GET https://api.ipdata.co/timezone?api-key=184b1c9f86a87584c9ac7dfaa1afe895ee1b045434d44a04ca9965e4
+###
+GET https://geo.ipify.org/api/v2/country?apiKey=at_q0P83xwbQ3QCDQaAnWxjc3OiWcm5r&ipAddress=24.24.24.24

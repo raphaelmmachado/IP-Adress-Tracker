@@ -1,8 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap");
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-size: 16px;
+  font-family: "Rubik", sans-serif;
 }
 #App {
   display: flex;
@@ -11,15 +13,17 @@
 }
 .header-section {
   width: 100%;
-  min-height: 150px;
+  min-height: 200px;
   background-image: url("../src/assets/images/pattern-bg.png");
   position: relative;
+  padding-bottom: 6rem;
 }
 .header-input {
-  min-width: 330px;
+  min-width: 250px;
   padding: 0.6rem;
   min-height: 44px;
   border-radius: 6px 0 0 6px;
+  font-size: 18px;
 }
 .header-image-div {
   min-height: 46px;
@@ -29,21 +33,19 @@
   padding: 2px;
   z-index: 2;
 }
-.header-section {
-  padding-bottom: 4.2rem;
-}
 .header-adress-section {
   background-color: white;
   position: absolute;
-  top: 60%;
+  top: 65%;
   margin-inline: auto;
-  min-width: 70vw;
   border-radius: 6px;
   padding: 1rem;
+  min-width: 65%;
+  max-width: 85%;
   z-index: 3;
 }
 .map-section-map {
   width: 100vw;
-  height: 100vh;
+  height: 120vh;
   z-index: 1;
 }

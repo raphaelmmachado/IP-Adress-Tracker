@@ -4,7 +4,10 @@ import { FormatDate } from "./FormattedDate.jsx";
 function HeaderComponent({ geoData, setInput, setSubmit }) {
   const inputRef = useRef("");
   return (
-    <header className="header-section flex flex-col items-center justify-center border-b border-blue-700">
+    <header
+      className="header-section flex flex-col
+    items-center justify-center border-b border-blue-700"
+    >
       <h1 className="text-white text-bold text-xl">IP Adress Tracker</h1>
       <form
         className="flex flex-row items-center justify-center max-h-[56px]"
@@ -21,11 +24,14 @@ function HeaderComponent({ geoData, setInput, setSubmit }) {
           className="header-input focus:outline-none"
           ref={inputRef}
         />
-        <button className="header-image-div bg-black flex items-center justify-center">
+        <button className="header-image-div bg-zinc-900 hover:bg-zinc-800 active:bg-zinc-700 flex items-center justify-center">
           <img src={arrowImg} />
         </button>
       </form>
-      <div className="header-adress-section flex flex-row justify-around shadow-md">
+      <div
+        className="header-adress-section flex flex-row flex-wrap justify-between shadow-md
+      gap-4"
+      >
         <div className="flex flex-col gap-2">
           <div>
             <div className="text-sm text-zinc-600 font-semibold">IP ADRESS</div>
@@ -64,7 +70,7 @@ function HeaderComponent({ geoData, setInput, setSubmit }) {
             <div className="text-sm text-zinc-600 font-semibold">
               CURRENT TIME
             </div>
-            <div className="text-lg text-zinc-900 font-bold">
+            <div>
               {geoData.currentTime && geoData.timezoneName && (
                 <FormatDate
                   date={geoData.currentTime}
