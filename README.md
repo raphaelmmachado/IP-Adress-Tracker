@@ -35,7 +35,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [Add solution URL here](https://www.frontendmentor.io/solutions/ip-tracker-built-with-ipdata-api-and-leaftlet-WCtTRG7FzG)
 - Live Site URL: [Add live site URL here](https://ip-tracker-rm.netlify.app)
 
 ## My process
