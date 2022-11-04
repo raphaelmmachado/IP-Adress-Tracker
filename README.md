@@ -35,8 +35,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://www.frontendmentor.io/solutions/ip-tracker-built-with-ipdata-api-and-leaftlet-WCtTRG7FzG)
-- Live Site URL: [Add live site URL here](https://ip-tracker-rm.netlify.app) - ⚠ You may have to disable your adblocker. In order for the api to work correctly!
+- Solution URL: [Frontend Mentor Solution](https://www.frontendmentor.io/solutions/ip-tracker-built-with-ipdata-api-and-leaftlet-WCtTRG7FzG)
+- Live Site URL: [Netlify](https://ip-tracker-rm.netlify.app) - ⚠ You may have to disable your adblocker. In order for the api to work correctly!
 
 ## My process
 
