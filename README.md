@@ -16,8 +16,6 @@ This is a solution to the [IP address tracker challenge on Frontend Mentor](http
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
-
 ## Overview
 
 ### The challenge
@@ -83,8 +81,6 @@ function FormatDate({ date, timezoneName }) {
 }
 export { FormatDate };
 ```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
 
 ### Continued development
 
