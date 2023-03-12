@@ -2,12 +2,13 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { MapComponent } from "./components/MapComponent.jsx";
 import { HeaderComponent } from "./components/HeaderComponent.jsx";
+import { ErrorMessage } from "./components/ErrorMessage.jsx";
 
 function App() {
   const [input, setInput] = useState("");
   const [geoData, setGeoData] = useState({});
   const [submit, setSubmit] = useState(false);
-
+  const [error, setError] = useState(false);
   useEffect(() => {
     const controller = new AbortController();
     const signal = controller.signal;
@@ -47,6 +48,7 @@ function App() {
       });
     } catch (e) {
       console.error(e);
+      setError(true);
     }
   };
   const getInputLocation = async () => {
@@ -78,7 +80,8 @@ function App() {
     }
   };
   return (
-    <div id="App">
+    <main id="App" className="relative">
+      {error && <ErrorMessage />}
       <HeaderComponent
         geoData={geoData}
         setInput={(text) => setInput(text)}
@@ -90,7 +93,7 @@ function App() {
           longitude={geoData.longitude}
         />
       )}
-    </div>
+    </main>
   );
 }
 
