@@ -93,6 +93,5 @@ Read more documentation to be independent from youtube tutorials.
 
 ## Author
 
-- Website - [Raphael Machado](https://rm0909portfolio.netlify.app/)
 - Frontend Mentor - [@rm0909](https://www.frontendmentor.io/profile/rm0909)
-- Twitter - [@github](https://github.com/rm0909)
+
